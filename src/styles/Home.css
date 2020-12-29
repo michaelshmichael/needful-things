@@ -1,0 +1,11 @@
+.home-image {
+    padding-top: 750px;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/55/Paris_-_Vintage_travel_gear_seller_at_the_marche_Dauphine_-_5212.jpg')
+}
+
+

@@ -1,0 +1,31 @@
+.product-container {
+    margin-top: 100px;
+    margin-left: 30px;
+    height: 600px;
+    width: 1200px;
+}
+
+.product-information {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 90%;
+    height: 80%;
+}
+
+.product-image-container {
+    width: 60%;
+    height: 80%;
+    margin-right: 20px;
+}
+
+.product-image {
+    max-width: 100%;
+    max-height: 100%;
+    
+}
+
+.product-blurb {
+    width: 40%;
+    background-color: rgb(236, 38, 38);
+}
