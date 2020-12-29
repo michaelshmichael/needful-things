@@ -19,7 +19,6 @@
 }
 
 .home-link {
-    margin-left: 20px;
     margin-right: 50px;
     margin-top: 10px;
     font-size: 50px;
@@ -36,8 +35,22 @@
     text-decoration: none;
 }
 
+.cart-icon-and-number-of-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 300px;
+    margin-left: 80px;
+}
+
 .cart-icon {
-    margin-right: 20px;
+    margin-right: 5px;
     margin-top: 30px;
+    font-size: 25px;
+}
+
+.number-of-items {
+    margin-top: 30px;
+    margin-right: 20px;
     font-size: 25px;
 }
