@@ -7,17 +7,10 @@ import Shop from './Shop';
 import Product from './Product';
 import '../styles/Body.css';
 
+
 export default function App() {
   const [numberOfItemsInBasket, setNumberOfItemsInBasket] = useState(0);
   const history = useHistory();
-
-  // const redirectToHome = () =>{ 
-  //   history.push('./');
-  // };
-
-  // const redirectToShop = () => {
-  //   history.push('./shop');
-  // }; 
 
   const redirectToProduct = (e) => {
     let productId = e.target.id;

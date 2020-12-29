@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import uniqid from 'uniqid';
 import wholeInventory from '../data';
 import '../styles/Shop.css';
@@ -33,6 +34,14 @@ export default function Shop (props) {
         };
     };
 
+    const format = (amount) => {
+        const currencyFormatter = new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+        });
+        return currencyFormatter.format(amount);
+    };
+
    
     return(
         <div className='shop-container'>
@@ -44,9 +53,15 @@ export default function Shop (props) {
                     <li className='sidebar-list-item' onClick={e => selectCollection(e)}>Biblical</li>
                 </ul>
             </div>
-
             <div className='shop-items'>
                 <h2 className='shop-title-text'>Welcome to Needful Things. Buy now, pay later.</h2>
+                <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0, y: 20 }}
+        transition={{ duration: 0.3 }}
+        >
                 <div className='inventory-display'>
                     {selectedInventory.map((item) => (
                         <div className='shop-item-card' id={item.id} onClick={e => props.redirectToProduct(e)} key={uniqid}>
@@ -55,12 +70,15 @@ export default function Shop (props) {
                             </div>
                             <div className='shop-item-info'>
                                 <div>{item.item}</div>
-                                <div>{item.price}</div>
+                                <div>{format(item.price)}</div>
                             </div>
                         </div>
                     ))}
                 </div>
+                </motion.div>
+    </AnimatePresence>
             </div>
         </div>
+        
     )
 }
