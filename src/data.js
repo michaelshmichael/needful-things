@@ -5,7 +5,7 @@ const wholeInventory = [
         price: 12.99, 
         collection: 'jewellery', 
         gallery: [
-            'https://bellfineart.co.uk/wp-content/uploads/2020/05/Turkuman-Neclace.jpg',
+            'https://www.dhresource.com/0x0/f2/albu/g5/M01/E8/38/rBVaI1hffeSACztPAALh5ppQ3Tc146.jpg',
         ]
     },
     {
@@ -14,43 +14,43 @@ const wholeInventory = [
         price: 33.99, 
         collection: 'biblical',
         gallery: [
-            'https://images.squarespace-cdn.com/content/v1/53f243d2e4b0807b9eafe6e0/1414584870812-99UIG957E2RO6DHJAV3N/ke17ZwdGBToddI8pDm48kKvaXCAuL7ddSLTqhI9LUKR7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0jmFbD9wYqa_ywtqZOMTVgVGLwhSicqQr8yXq8ltxKDaPQ_DoEWrFrFO1KJWH2RqUg/image-asset.png',
+            'https://s7d2.scene7.com/is/image/PetSmart/5109961',
         ]
     },
     {
-        item: 'Diamond-Encrusted Mirror', 
-        id: 'diamond-encrusted-mirror', 
+        item: 'Audrey Hepburn\'s Haunted Mirror', 
+        id: 'audrey-hepburn\'s-haunted-mirror', 
         price: 15.82, 
         collection: 'memorabilia',
         gallery: [
-            'https://i.pinimg.com/originals/60/74/a2/6074a270335c7bfbee8e22b673f4ea00.jpg',
+            'https://wanderlord.com/wp-content/uploads/2016/04/mirror-1.jpg',
         ]
     },
     {
-        item: 'Vietnam-War Shell', 
-        id: 'vietnam-war-shell', 
+        item: 'Babe Ruth Home-Run Ball', 
+        id: 'babe-ruth-home-run-ball', 
         price: 3.20, 
         collection: 'memorabilia',
         gallery: [
-            'https://atlas-content-cdn.pixelsquid.com/stock-images/rifle-ammo-casing-cartridge-9Ge7dDA-600.jpg',
+            'https://s3.envato.com/files/285506776/screenshot001.png',
         ]
     },
     {
-        item: 'Tortoishell Sunglasses', 
-        id: 'tortoiseshell-sunglasses',
+        item: 'Time-Lord\'s Glasses', 
+        id: 'time-lord\'s-glasses',
         price: 68.50, 
         collection: 'jewellery', 
         gallery: [ 
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSS9rmDNbmcas75rF_GAFLHKXShmvqI8EQpQ&usqp=CAU',
+            'https://www.thegypsythread.org/wp-content/uploads/2018/01/13713649_f520.jpg',
         ]
     },
     {
-        item: 'Nail of Christ', 
-        id: 'nail-of-christ', 
+        item: 'Abraham\'s Tunic', 
+        id: 'abraham\'s-tunic', 
         price: 4.60, 
         collection: 'biblical',
         gallery: [
-            'https://cdn.mos.cms.futurecdn.net/edTyRAMJLqPDoMLjMQyatC.jpg',
+            'https://images-na.ssl-images-amazon.com/images/I/81xRfxFOa6L._AC_UL1500_.jpg',
         ]
     }
 ]
