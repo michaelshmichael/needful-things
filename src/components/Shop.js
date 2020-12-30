@@ -67,7 +67,7 @@ export default function Shop (props) {
             <div className='shop-items'>
                 <h2 className={shopTitleText}>Welcome to Needful Things. Buy now, pay later.</h2>
                 <h2 className={collectionAndReturnText} onClick={returnToWholeInventory}>
-                <CgArrowLongLeft className='return-arrow'></CgArrowLongLeft>     Back to All
+                <CgArrowLongLeft className='return-arrow'></CgArrowLongLeft>   Back to All
                 </h2>
                 <AnimatePresence>
                 <motion.div
