@@ -9,6 +9,7 @@ import '../styles/Shop.css';
 export default function Shop (props) {
     const [selectedInventory, setSelectedInventory] = useState(wholeInventory);
     const [shopTitleText, setShopTitleText] = useState('shop-title-text');
+    const [selectedCategory, setSelectedCategory] = useState('')
     const [collectionAndReturnText, setCollectionAndReturnText] = useState('shop-title-return-hidden');
     
     const populateSelectedCollectionArray = (collection) => {
@@ -19,6 +20,7 @@ export default function Shop (props) {
           }
         })
         setSelectedInventory(selectedInventory);
+        setSelectedCategory(collection.toUpperCase())
         setShopTitleText('shop-title-text-hidden');
         setCollectionAndReturnText('shop-title-return');
     };
@@ -66,9 +68,12 @@ export default function Shop (props) {
             </div>
             <div className='shop-items'>
                 <h2 className={shopTitleText}>Welcome to Needful Things. Buy now, pay later.</h2>
-                <h2 className={collectionAndReturnText} onClick={returnToWholeInventory}>
-                <CgArrowLongLeft className='return-arrow'></CgArrowLongLeft>   Back to All
-                </h2>
+                <div className={collectionAndReturnText}>
+                    <h2>{selectedCategory}</h2>
+                    <h2 onClick={returnToWholeInventory}>
+                    <CgArrowLongLeft className='return-arrow'></CgArrowLongLeft>   Back to All
+                    </h2>
+                </div>
                 <AnimatePresence>
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -80,7 +85,7 @@ export default function Shop (props) {
                     {selectedInventory.map((item) => (
                         <div className='shop-item-card' id={item.id} onClick={e => props.redirectToProduct(e)} key={uniqid}>
                             <div className='shop-item-image-container'>
-                                <img className='shop-item-image' src={item.gallery[0]} alt='Amulet'></img>
+                                <img className='shop-item-image' src={item.gallery[0]} alt={item.id}></img>
                             </div>
                             <div className='shop-item-info'>
                                 <div>{item.item}</div>
