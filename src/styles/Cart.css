@@ -1,0 +1,18 @@
+.cart-container {
+    width: 500px;
+    height: 100%;
+    background-color: green;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+
+.cart-container.transition {
+    background: rgb(50, 148, 50);
+    left: 50px;
+}

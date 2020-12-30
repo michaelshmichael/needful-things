@@ -5,11 +5,13 @@ import Footer from './Footer';
 import Home from './Home';
 import Shop from './Shop';
 import Product from './Product';
+import Cart from './Cart';
 import '../styles/Body.css';
 
 
 export default function App() {
   const [numberOfItemsInBasket, setNumberOfItemsInBasket] = useState(0);
+  const [cartContainerClass, setCartContainerClass] = useState('cart-container-hidden');
   const history = useHistory();
 
   const redirectToProduct = (e) => {
@@ -26,6 +28,14 @@ export default function App() {
     increaseNumberOfItemsInBasket();
   };
 
+  const toggleCartDisplay = () => {
+    if(cartContainerClass === 'cart-container-hidden'){
+        setCartContainerClass('cart-container')
+    } else {
+        setCartContainerClass('cart-container-hidden')
+    }
+  };
+
   return (
     <div className="App">
       <Header 
@@ -37,9 +47,12 @@ export default function App() {
             redirectToProduct={redirectToProduct}
           />}></Route>
           <Route exact path='/:productId' render={props => <Product {...props}
-            addItemToBasket={addItemToBasket}
+            toggleCartDisplay={toggleCartDisplay}
           />}></Route>
         </Switch>
+      <Cart 
+      toggleCartDisplay={toggleCartDisplay}
+      cartContainerClass={cartContainerClass}></Cart>
       <Footer></Footer>
     </div>
   );
