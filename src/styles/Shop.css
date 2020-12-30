@@ -97,3 +97,23 @@
 .shop-title-text {
     margin-left: 25px;
 }
+
+.shop-title-text-hidden {
+    display: none;
+}
+
+.shop-title-return {
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+.return-arrow {
+    position: relative;
+    top: 3px;
+}
+
+.shop-title-return-hidden {
+    margin-left: 25px;
+    display: none;
+}
+

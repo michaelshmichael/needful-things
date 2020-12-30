@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { CgArrowLongLeft } from 'react-icons/cg';
 import uniqid from 'uniqid';
 import wholeInventory from '../data';
 import '../styles/Shop.css';
@@ -7,6 +8,8 @@ import '../styles/Shop.css';
 
 export default function Shop (props) {
     const [selectedInventory, setSelectedInventory] = useState(wholeInventory);
+    const [shopTitleText, setShopTitleText] = useState('shop-title-text');
+    const [collectionAndReturnText, setCollectionAndReturnText] = useState('shop-title-return-hidden');
     
     const populateSelectedCollectionArray = (collection) => {
         let selectedInventory = [];
@@ -16,6 +19,8 @@ export default function Shop (props) {
           }
         })
         setSelectedInventory(selectedInventory);
+        setShopTitleText('shop-title-text-hidden');
+        setCollectionAndReturnText('shop-title-return');
     };
     
     const selectCollection = (collection) => {
@@ -32,6 +37,12 @@ export default function Shop (props) {
             default:
             // Required default
         };
+    };
+
+    const returnToWholeInventory = () => {
+        setSelectedInventory(wholeInventory);
+        setShopTitleText('shop-title-text');
+        setCollectionAndReturnText('shop-title-return-hidden');
     };
 
     const format = (amount) => {
@@ -54,14 +65,17 @@ export default function Shop (props) {
                 </ul>
             </div>
             <div className='shop-items'>
-                <h2 className='shop-title-text'>Welcome to Needful Things. Buy now, pay later.</h2>
+                <h2 className={shopTitleText}>Welcome to Needful Things. Buy now, pay later.</h2>
+                <h2 className={collectionAndReturnText} onClick={returnToWholeInventory}>
+                <CgArrowLongLeft className='return-arrow'></CgArrowLongLeft>     Back to All
+                </h2>
                 <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0, y: 20 }}
-        transition={{ duration: 0.3 }}
-        >
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    transition={{ duration: 0.3 }}
+                    >
                 <div className='inventory-display'>
                     {selectedInventory.map((item) => (
                         <div className='shop-item-card' id={item.id} onClick={e => props.redirectToProduct(e)} key={uniqid}>
