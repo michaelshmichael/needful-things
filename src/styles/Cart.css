@@ -10,9 +10,35 @@
     -moz-transition: all 0.5s linear;
     -o-transition: all 0.5s linear;
     transition: all 0.5s linear;
+    padding-left: 15px;
 }
 
 .cart-container.transition {
     background: rgb(50, 148, 50);
     left: 50px;
+}
+
+.item-container-in-cart {
+    height: 200px;
+    width: 400px;
+    background-color: pink;
+}
+
+.item-information {
+    display: flex;
+    flex-direction: row;
+    height: 150px;
+    width: 380px;
+    justify-content: space-evenly;
+    background-color: violet;
+}
+
+.item-image {
+    max-width: 40%;
+    max-height: auto;
+}
+
+.item-quantity {
+    max-width: 60%;
+    
 }

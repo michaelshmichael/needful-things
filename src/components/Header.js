@@ -13,18 +13,11 @@ export default function Header (props) {
             </div>
             <div className='cart-icon-and-number-of-items'>
                 <div className='cart-icon'>
-                    <AiTwotoneShopping />
+                    <AiTwotoneShopping onClick={props.toggleCartDisplay}/>
                 </div>
-                
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                    className='number-of-items'
-                 >
-                 {props.numberOfItemsInBasket}
-                </motion.div>
-                
+                <div className='number-of-items' onClick={props.toggleCartDisplay}>
+                 {props.numberOfItemsInCart}
+                 </div>
             </div>
             
             

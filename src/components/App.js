@@ -6,12 +6,14 @@ import Home from './Home';
 import Shop from './Shop';
 import Product from './Product';
 import Cart from './Cart';
+import wholeInventory from '../data';
 import '../styles/Body.css';
 
 
 export default function App() {
-  const [numberOfItemsInBasket, setNumberOfItemsInBasket] = useState(0);
+  const [numberOfItemsInCart, setNumberOfItemsInCart] = useState(0);
   const [cartContainerClass, setCartContainerClass] = useState('cart-container-hidden');
+  const [cartContents, setCartContents] = useState([]);
   const history = useHistory();
 
   const redirectToProduct = (e) => {
@@ -19,13 +21,24 @@ export default function App() {
     history.push(`./${productId}`);
   };
 
-  const increaseNumberOfItemsInBasket = () => {
-    setNumberOfItemsInBasket(numberOfItemsInBasket+1);
+  const increaseNumberOfItemsInCart = () => {
+    setNumberOfItemsInCart(numberOfItemsInCart+1);
   };
 
-  const addItemToBasket = () => {
-    // Will need to put the item information into the basket page
-    increaseNumberOfItemsInBasket();
+  const addItemToCart = (product) => {
+    let productToAdd = wholeInventory.find(item => item.id === product.target.id);
+    if(cartContents.indexOf(productToAdd) !== -1 ){
+      alert('cart already contains this item')
+    } else {
+      setCartContents(cartContents.concat(productToAdd))
+      console.log(cartContents)
+      increaseNumberOfItemsInCart();
+    }
+  };
+
+  const deleteItemFromCart = (product) => {
+    const updatedCartContents = cartContents.filter(item => item.id !== product.target.id)
+    setCartContents(updatedCartContents)
   };
 
   const toggleCartDisplay = () => {
@@ -39,7 +52,8 @@ export default function App() {
   return (
     <div className="App">
       <Header 
-      numberOfItemsInBasket={numberOfItemsInBasket}
+      numberOfItemsInCart={numberOfItemsInCart}
+      toggleCartDisplay={toggleCartDisplay}
       ></Header>
         <Switch>
           <Route exact path='/' component={Home}></Route>
@@ -47,12 +61,15 @@ export default function App() {
             redirectToProduct={redirectToProduct}
           />}></Route>
           <Route exact path='/:productId' render={props => <Product {...props}
-            toggleCartDisplay={toggleCartDisplay}
+            addItemToCart={addItemToCart}
           />}></Route>
         </Switch>
-      <Cart 
+      <Cart
+      cartContents={cartContents}
       toggleCartDisplay={toggleCartDisplay}
-      cartContainerClass={cartContainerClass}></Cart>
+      cartContainerClass={cartContainerClass}
+      deleteItemFromCart={deleteItemFromCart}>
+      </Cart>
       <Footer></Footer>
     </div>
   );
