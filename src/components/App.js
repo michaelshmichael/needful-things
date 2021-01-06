@@ -20,7 +20,8 @@ export default function App() {
   const setInitialTotalPrice = () => {
     let cartPrice = 0;
     cartContents.forEach(item => {
-      cartPrice += item.price;
+      let itemPrice = item.price*item.itemTotal;
+      cartPrice += itemPrice;
     })
     setCartPrice(cartPrice)
   };
@@ -43,9 +44,14 @@ export default function App() {
     history.push(`./${productId}`);
   };
 
+  // Make these 'change no. of items
   const increaseNumberOfItemsInCart = () => {
     setNumberOfItemsInCart(numberOfItemsInCart+1);
   };
+
+  const decreaseNumberOfItemsInCart = () => {
+    setNumberOfItemsInCart(numberOfItemsInCart-1);
+  }
 
   const addItemToCart = (product) => {
     let productToAdd = wholeInventory.find(item => item.id === product.target.id);
@@ -61,6 +67,7 @@ export default function App() {
   const deleteItemFromCart = (product) => {
     const updatedCartContents = cartContents.filter(item => item.id !== product.target.id)
     setCartContents(updatedCartContents)
+    decreaseNumberOfItemsInCart();
   };
 
   const toggleCartDisplay = () => {

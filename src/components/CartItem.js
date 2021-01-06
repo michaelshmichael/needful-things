@@ -1,39 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export default function CartItem (props) {
-    const [itemQuantity, setItemQuantity] = useState(1);
-    const itemTotal = props.item.price*itemQuantity;
+    const itemTotal = props.item.price*props.item.itemTotal;
     
     const increaseNumberOfItems = () => {
-        setItemQuantity(itemQuantity+Number(1));
+        props.item.itemTotal+=1;
         props.updateCartPrice(props.item.price, 'plus');
     };
 
     const decreaseNumberOfItems = () => {
-        setItemQuantity(itemQuantity-Number(1));
+        props.item.itemTotal-=1;
         props.updateCartPrice(props.item.price, 'minus');
     };
 
-    // useEffect(() => {
-    //     let totalPrice = itemQuantity * props.item.price;
-    //     setItemTotal(totalPrice);
-    //     props.updateSubtotal(totalPrice);
-    // }, [itemQuantity] );
+    const format = (amount) => {
+        const currencyFormatter = new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+        });
+        return currencyFormatter.format(amount);
+    };
 
     return(
         <div className='item-container-in-cart'>
-            <h3>{props.item.item}</h3>
+            <h3>{props.item.item} : {format(props.item.price)}</h3>
             <div className='item-information'>
                 <img className='item-image'src={props.item.gallery[0]} alt={props.item.gallery[0]}>
                 </img>
                 <div className='item-quantity'>
-                    <h3>Price: {itemTotal}</h3>
+                    <h3>Price: {format(itemTotal)}</h3>
                     <div className='change-quantity'>
                         <h4>No. of items</h4>
                         <button onClick={decreaseNumberOfItems}>-</button>
                         <input 
                         type='number'
-                        value={itemQuantity} 
+                        value={props.item.itemTotal} 
                         id={props.item.id} 
                         ></input>
                         <button onClick={increaseNumberOfItems}>+</button>

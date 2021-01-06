@@ -55,7 +55,6 @@ export default function Shop (props) {
         return currencyFormatter.format(amount);
     };
 
-   
     return(
         <div className='shop-container'>
             <div className='shop-sidebar'>
