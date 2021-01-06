@@ -17,6 +17,10 @@ export default function App() {
   const [cartPrice, setCartPrice] = useState(0);
   const history = useHistory();
 
+  useEffect(() => {
+    setInitialTotalPrice();
+  });
+
   const setInitialTotalPrice = () => {
     let cartPrice = 0;
     cartContents.forEach(item => {
@@ -26,12 +30,7 @@ export default function App() {
     setCartPrice(cartPrice)
   };
 
-  useEffect(() => {
-    setInitialTotalPrice();
-  }, [cartContents]);
-
   const updateCartPrice = (itemTotal, operator) => {
-    console.log(itemTotal, operator)
     if(operator === 'plus'){ 
         setCartPrice(cartPrice+itemTotal);
     } else {
@@ -44,22 +43,21 @@ export default function App() {
     history.push(`./${productId}`);
   };
 
-  // Make these 'change no. of items
-  const increaseNumberOfItemsInCart = () => {
-    setNumberOfItemsInCart(numberOfItemsInCart+1);
-  };
-
-  const decreaseNumberOfItemsInCart = () => {
-    setNumberOfItemsInCart(numberOfItemsInCart-1);
-  };
+  const updateNumberOfItemsInCart = (direction) => {
+    if(direction === 'increase'){
+      setNumberOfItemsInCart(numberOfItemsInCart+1);
+    } else if(direction === 'decrease') {
+      setNumberOfItemsInCart(numberOfItemsInCart-1);
+    }
+  }
 
   const addItemToCart = (product) => {
     let productToAdd = wholeInventory.find(item => item.id === product.target.id);
     if(cartContents.indexOf(productToAdd) !== -1 ){
-      alert('cart already contains this item')
+      alert('Cart already contains this item')
     } else {
       setCartContents(cartContents.concat(productToAdd))
-      increaseNumberOfItemsInCart();
+      updateNumberOfItemsInCart('increase');
       setInitialTotalPrice(productToAdd);
     }
   };
@@ -67,7 +65,7 @@ export default function App() {
   const deleteItemFromCart = (product) => {
     const updatedCartContents = cartContents.filter(item => item.id !== product.target.id)
     setCartContents(updatedCartContents)
-    decreaseNumberOfItemsInCart();
+    updateNumberOfItemsInCart('decrease');
   };
 
   const toggleCartDisplay = () => {
