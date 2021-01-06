@@ -8,8 +8,8 @@ export default function Cart (props) {
             <h1>Your Cart</h1>
             {props.cartContents.map((item) => (
                 <CartItem 
-                item={item} 
-                updateSubtotal={props.updateSubtotal} 
+                item={item}
+                updateCartPrice={props.updateCartPrice}
                 deleteItemFromCart={props.deleteItemFromCart}/>
             ))}
             <h2>Subtotal: {props.cartPrice}</h2>

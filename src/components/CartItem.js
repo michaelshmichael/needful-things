@@ -6,10 +6,12 @@ export default function CartItem (props) {
     
     const increaseNumberOfItems = () => {
         setItemQuantity(itemQuantity+Number(1));
+        props.updateCartPrice(props.item.price, 'plus');
     };
 
     const decreaseNumberOfItems = () => {
         setItemQuantity(itemQuantity-Number(1));
+        props.updateCartPrice(props.item.price, 'minus');
     };
 
     // useEffect(() => {

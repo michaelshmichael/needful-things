@@ -29,19 +29,14 @@ export default function App() {
     setInitialTotalPrice();
   }, [cartContents]);
 
-  // const updateSubtotal = (itemTotal, operator) => {
-  //     if(subtotal === 0){
-  //         setSubtotal(itemTotal * 2)
-  //     } else {
-  //         if(operator === 'plus'){ 
-  //             console.log('plus')
-  //             setSubtotal(subtotal+itemTotal);
-  //         } else {
-  //             setSubtotal(subtotal-itemTotal);
-  //             console.log('minus')
-  //         }
-  //     }
-  // };
+  const updateCartPrice = (itemTotal, operator) => {
+    console.log(itemTotal, operator)
+    if(operator === 'plus'){ 
+        setCartPrice(cartPrice+itemTotal);
+    } else {
+        setCartPrice(cartPrice-itemTotal);
+    }
+  };
 
   const redirectToProduct = (e) => {
     let productId = e.target.id;
@@ -92,7 +87,7 @@ export default function App() {
           />}></Route>
         </Switch>
       <Cart
-      //updateSubtotal={updateSubtotal}
+      updateCartPrice={updateCartPrice}
       cartContents={cartContents}
       cartPrice={cartPrice}
       toggleCartDisplay={toggleCartDisplay}
