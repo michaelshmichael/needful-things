@@ -51,7 +51,7 @@ export default function App() {
 
   const decreaseNumberOfItemsInCart = () => {
     setNumberOfItemsInCart(numberOfItemsInCart-1);
-  }
+  };
 
   const addItemToCart = (product) => {
     let productToAdd = wholeInventory.find(item => item.id === product.target.id);
