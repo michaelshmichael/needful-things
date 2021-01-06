@@ -33,6 +33,18 @@
     font-weight: 600;
 }
 
+.sidebar-list-item:active {
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+    list-style: none;
+    font-size: 1.3rem;
+    line-height: 2.6rem;
+    font-family: "Redressed";
+    font-weight: 600;
+    transform: translateY(1px);
+}
+
 .sidebar-list-item:after {
     content: "";
     position: absolute;

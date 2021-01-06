@@ -12,9 +12,7 @@ export default function Header (props) {
                 <Link to='./shop' className='shop-link'>Shop</Link>
             </div>
             <div className='cart-icon-and-number-of-items'>
-                <div className='cart-icon'>
-                    <AiTwotoneShopping onClick={props.toggleCartDisplay}/>
-                </div>
+                <AiTwotoneShopping className='cart-icon' onClick={props.toggleCartDisplay}/>
                 <div className='number-of-items' onClick={props.toggleCartDisplay}>
                  {props.numberOfItemsInCart}
                  </div>

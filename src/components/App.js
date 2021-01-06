@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
@@ -14,7 +14,34 @@ export default function App() {
   const [numberOfItemsInCart, setNumberOfItemsInCart] = useState(0);
   const [cartContainerClass, setCartContainerClass] = useState('cart-container-hidden');
   const [cartContents, setCartContents] = useState([]);
+  const [cartPrice, setCartPrice] = useState(0);
   const history = useHistory();
+
+  const setInitialTotalPrice = () => {
+    let cartPrice = 0;
+    cartContents.forEach(item => {
+      cartPrice += item.price;
+    })
+    setCartPrice(cartPrice)
+  };
+
+  useEffect(() => {
+    setInitialTotalPrice();
+  }, [cartContents]);
+
+  // const updateSubtotal = (itemTotal, operator) => {
+  //     if(subtotal === 0){
+  //         setSubtotal(itemTotal * 2)
+  //     } else {
+  //         if(operator === 'plus'){ 
+  //             console.log('plus')
+  //             setSubtotal(subtotal+itemTotal);
+  //         } else {
+  //             setSubtotal(subtotal-itemTotal);
+  //             console.log('minus')
+  //         }
+  //     }
+  // };
 
   const redirectToProduct = (e) => {
     let productId = e.target.id;
@@ -31,8 +58,8 @@ export default function App() {
       alert('cart already contains this item')
     } else {
       setCartContents(cartContents.concat(productToAdd))
-      console.log(cartContents)
       increaseNumberOfItemsInCart();
+      setInitialTotalPrice(productToAdd);
     }
   };
 
@@ -65,7 +92,9 @@ export default function App() {
           />}></Route>
         </Switch>
       <Cart
+      //updateSubtotal={updateSubtotal}
       cartContents={cartContents}
+      cartPrice={cartPrice}
       toggleCartDisplay={toggleCartDisplay}
       cartContainerClass={cartContainerClass}
       deleteItemFromCart={deleteItemFromCart}>

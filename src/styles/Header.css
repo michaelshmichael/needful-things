@@ -36,6 +36,15 @@
     text-decoration: none;
 }
 
+.shop-link:active {
+    font-size: 25px;
+    margin-top: 30px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    transform: translateY(1px);
+}
+
 .cart-icon-and-number-of-items {
     display: flex;
     flex-direction: row;
@@ -45,6 +54,7 @@
 }
 
 .cart-icon {
+    position: relative;
     margin-right: 5px;
     margin-top: 30px;
     font-size: 25px;
@@ -52,8 +62,31 @@
 }
 
 .number-of-items {
+    position: relative;
+    display: inline-block;
     margin-top: 30px;
     margin-right: 20px;
     font-size: 25px;
     cursor: default;
+    z-index: 0;
+}
+
+.number-of-items::after {
+    content: "";
+    display: inline;
+    height: 30%;
+    width: 100%;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    border-radius: 100px;
+    z-index: -1;
+    transition: 0.4s all;
+}
+
+.number-of-items:hover::after {
+    transform: scale(2);
+    background: white;
+    opacity: 0.4;
+    
 }

@@ -1,6 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function CartItem (props) {
+    const [itemQuantity, setItemQuantity] = useState(1);
+    const itemTotal = props.item.price*itemQuantity;
+    
+    const increaseNumberOfItems = () => {
+        setItemQuantity(itemQuantity+Number(1));
+    };
+
+    const decreaseNumberOfItems = () => {
+        setItemQuantity(itemQuantity-Number(1));
+    };
+
+    // useEffect(() => {
+    //     let totalPrice = itemQuantity * props.item.price;
+    //     setItemTotal(totalPrice);
+    //     props.updateSubtotal(totalPrice);
+    // }, [itemQuantity] );
+
     return(
         <div className='item-container-in-cart'>
             <h3>{props.item.item}</h3>
@@ -8,16 +25,16 @@ export default function CartItem (props) {
                 <img className='item-image'src={props.item.gallery[0]} alt={props.item.gallery[0]}>
                 </img>
                 <div className='item-quantity'>
-                    <h3>Price: {props.item.price}</h3>
+                    <h3>Price: {itemTotal}</h3>
                     <div className='change-quantity'>
                         <h4>No. of items</h4>
-                        <button></button>
+                        <button onClick={decreaseNumberOfItems}>-</button>
                         <input 
-                        type='number' 
+                        type='number'
+                        value={itemQuantity} 
                         id={props.item.id} 
-                        placeholder = '1' 
                         ></input>
-                        <button></button>
+                        <button onClick={increaseNumberOfItems}>+</button>
                     </div>
                     <button
                     id={props.item.id}

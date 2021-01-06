@@ -7,7 +7,7 @@ import '../styles/Product.css';
 export default function Product (props) {
     const { productId } = useParams();
     const product = wholeInventory.find(product => product.id === productId);
-
+    
     return (
         <AnimatePresence>
         <motion.div
