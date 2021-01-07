@@ -1,7 +1,7 @@
 .cart-container {
     width: 500px;
     height: 100%;
-    background-color: rgb(141, 141, 141);
+    background-color: rgb(97, 97, 97);
     position: fixed;
     right: 0;
     top: 0;
@@ -30,7 +30,8 @@
 .item-container-in-cart {
     height: 200px;
     width: 400px;
-    background-color: pink;
+    background-color: rgb(138, 137, 137);
+    text-align: center;
 }
 
 .item-information {
@@ -39,7 +40,7 @@
     height: 150px;
     width: 380px;
     justify-content: space-evenly;
-    background-color: violet;
+    background-color: rgb(97, 97, 97);
 }
 
 .item-image {

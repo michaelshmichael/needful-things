@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function CartItem (props) {
-    const itemTotal = props.item.price*props.item.itemTotal;
+    const itemsTotal = props.item.price*props.item.itemTotal;
+    const [disableDecreaseButton, setDisableDecreaseButton] = useState(true)
     
     const increaseNumberOfItems = () => {
         props.item.itemTotal+=1;
         props.updateCartPrice(props.item.price, 'plus');
+        setDisableDecreaseButton(false);
     };
 
     const decreaseNumberOfItems = () => {
         props.item.itemTotal-=1;
         props.updateCartPrice(props.item.price, 'minus');
+        if(props.item.itemTotal === 1){
+             setDisableDecreaseButton(true);
+        }
     };
 
     const format = (amount) => {
@@ -23,15 +28,15 @@ export default function CartItem (props) {
 
     return(
         <div className='item-container-in-cart'>
-            <h3>{props.item.item} : {format(props.item.price)}</h3>
+            <h2>{props.item.item} : {format(props.item.price)}</h2>
             <div className='item-information'>
                 <img className='item-image'src={props.item.gallery[0]} alt={props.item.gallery[0]}>
                 </img>
                 <div className='item-quantity'>
-                    <h3>Price: {format(itemTotal)}</h3>
+                    <h3>Price: {format(itemsTotal)}</h3>
                     <div className='change-quantity'>
                         <h4>No. of items</h4>
-                        <button onClick={decreaseNumberOfItems}>-</button>
+                        <button disabled={disableDecreaseButton} onClick={decreaseNumberOfItems}>-</button>
                         <input 
                         type='number'
                         value={props.item.itemTotal} 

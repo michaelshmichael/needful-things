@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
@@ -8,7 +8,6 @@ import Product from './Product';
 import Cart from './Cart';
 import wholeInventory from '../data';
 import '../styles/Body.css';
-
 
 export default function App() {
   const [numberOfItemsInCart, setNumberOfItemsInCart] = useState(0);
@@ -45,7 +44,7 @@ export default function App() {
     } else if(direction === 'decrease') {
       setNumberOfItemsInCart(numberOfItemsInCart-1);
     }
-  }
+  };
 
   const addItemToCart = (product) => {
     let productToAdd = wholeInventory.find(item => item.id === product.target.id);
