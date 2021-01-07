@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import CartItem from './CartItem';
 import '../styles/Cart.css';
 
 export default function Cart (props) {
+
+    useEffect(() => {
+        props.setInitialTotalPrice();
+      });
 
     const format = (amount) => {
         const currencyFormatter = new Intl.NumberFormat("en-US", {

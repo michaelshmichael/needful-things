@@ -17,10 +17,6 @@ export default function App() {
   const [cartPrice, setCartPrice] = useState(0);
   const history = useHistory();
 
-  useEffect(() => {
-    setInitialTotalPrice();
-  });
-
   const setInitialTotalPrice = () => {
     let cartPrice = 0;
     cartContents.forEach(item => {
@@ -92,6 +88,7 @@ export default function App() {
           />}></Route>
         </Switch>
       <Cart
+      setInitialTotalPrice={setInitialTotalPrice}
       updateCartPrice={updateCartPrice}
       cartContents={cartContents}
       cartPrice={cartPrice}
