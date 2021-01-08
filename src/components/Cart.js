@@ -28,7 +28,7 @@ export default function Cart (props) {
                 deleteItemFromCart={props.deleteItemFromCart}/>
             ))}
             <h2>Subtotal: {format(props.cartPrice)}</h2>
-            <button onClick={props.toggleCartDisplay}>Hide Cart</button>
+            <button className='uibutton' onClick={props.toggleCartDisplay}>Hide Cart</button>
         </div>
     )
 };

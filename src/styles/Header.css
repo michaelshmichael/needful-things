@@ -12,6 +12,34 @@
     z-index: 1;
 }
 
+@media (max-width: 750px) {
+    .links .home-link {
+        margin-right: 20px;
+        margin-left: 15px;
+        margin-top: 18px;
+        font-size: 40px;
+        width: 250px;
+        cursor: pointer;
+        color: white;
+        text-decoration: none;
+    }
+
+    .links .shop-link{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 50px;
+    }
+
+    .cart-icon-and-number-of-items {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        width: 200px;
+        margin-left: 20px;
+    }
+}
+
 .links {
     display: flex;
     flex-direction: row;
