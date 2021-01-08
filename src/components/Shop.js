@@ -60,9 +60,9 @@ export default function Shop (props) {
             <div className='shop-sidebar'>
                 <h2 className='sidebar-title'>Collections</h2>
                 <ul className='sidebar-list-title'>
-                    <li className='sidebar-list-item' onClick={e => selectCollection(e)}>Jewellery</li>
-                    <li className='sidebar-list-item' onClick={e => selectCollection(e)}>Memorabilia</li>
-                    <li className='sidebar-list-item' onClick={e => selectCollection(e)}>Biblical</li>
+                    <li className={'sidebar-list-item'} onClick={e => selectCollection(e)}>Jewellery</li>
+                    <li className={'sidebar-list-item'} onClick={e => selectCollection(e)}>Memorabilia</li>
+                    <li className={'sidebar-list-item'} onClick={e => selectCollection(e)}>Biblical</li>
                 </ul>
             </div>
             <div className='shop-items'>
