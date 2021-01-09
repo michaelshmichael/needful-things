@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Footer.css';
+import '../styles/Footer.scss';
 
 export default function Footer () {
     return(
@@ -9,7 +9,7 @@ export default function Footer () {
                 <p className='contact-details'>Email: badguy17@hades.com Tel: 1 (666) 111-9876</p> 
             </div>
             
-            <p>Castle Rock, Maine. Est. 1993.</p>
+            <div className='address'>Castle Rock, Maine. Est. 1993.</div>
         </div>
     )
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
 import wholeInventory from '../data';
-import '../styles/Product.css';
+import '../styles/Product.scss';
 
 export default function Product (props) {
     const { productId } = useParams();

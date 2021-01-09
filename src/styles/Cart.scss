@@ -1,7 +1,7 @@
 .cart-container {
     width: 500px;
     height: 100%;
-    background-color: rgb(194, 194, 194);
+    background-color: rgb(255, 255, 255);
     position: fixed;
     right: 0;
     top: 0;
@@ -9,6 +9,8 @@
     padding-left: 15px;
     animation: cartSlideIn 1s;
     overflow: scroll;
+    border: rgb(214, 214, 214) solid 8px;
+    box-sizing: border-box;
 }
 
 @keyframes cartSlideIn {
@@ -16,7 +18,6 @@
         opacity: 0;
         transform: translateX(200px)
     }
-
     100% {
         opacity: 1;
         transform: translateX(0)
@@ -25,6 +26,21 @@
 
 .cart-container-hidden {
     display: none;
+}
+
+@media (max-width: 750px) {
+    .cart-container {
+        max-width: 100%;
+        height: 100%;
+        background-color: rgb(194, 194, 194);
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 2;
+        padding-left: 15px;
+        animation: cartSlideIn 1s;
+        overflow: scroll;
+    }
 }
 
 .item-container-in-cart {

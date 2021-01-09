@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/Cart.css'
+import '../styles/Cart.scss'
 
 export default function CartItem (props) {
     const itemsTotal = props.item.price*props.item.itemTotal;

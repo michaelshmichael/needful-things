@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import CartItem from './CartItem';
 import uniqid from 'uniqid';
-import '../styles/Cart.css';
+import '../styles/Cart.scss';
 
 export default function Cart (props) {
 

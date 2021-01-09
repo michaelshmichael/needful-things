@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { CgArrowLongLeft } from 'react-icons/cg';
 import uniqid from 'uniqid';
 import wholeInventory from '../data';
-import '../styles/Shop.css';
+import '../styles/Shop.scss';
 
 
 export default function Shop (props) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiTwotoneShopping } from 'react-icons/ai';
-import '../styles/Header.css';
+import '../styles/Header.scss';
 
 export default function Header (props) {
     return (

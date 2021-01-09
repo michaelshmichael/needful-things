@@ -7,7 +7,8 @@ import Shop from './Shop';
 import Product from './Product';
 import Cart from './Cart';
 import wholeInventory from '../data';
-import '../styles/Body.css';
+import '../styles/Body.scss';
+import '../styles/Cart.scss';
 
 export default function App() {
   const [numberOfItemsInCart, setNumberOfItemsInCart] = useState(0);
