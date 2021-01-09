@@ -33,9 +33,7 @@ export default function Product (props) {
                             className='uibutton'>Add to Basket</button>
                         </div>
                     </div>
-                    
                 </div>
-                
             </motion.div>
         </AnimatePresence>
     )
