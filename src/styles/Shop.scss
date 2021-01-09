@@ -1,215 +1,221 @@
+$sidebar-color: rgb(46,46,46);
+@mixin flex($direction, $justify-content){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify-content;
+}
+
 .shop-container {
     margin-top: 90px;
     width: 100%;
     height: 2000px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    @include flex(row, center);
+
+    .shop-sidebar {
+        width: 23%;
+        background-color: $sidebar-color;
+        padding-left: 25px;
+        color: white;
+
+        .sidebar-title {
+            cursor: default;
+        }
+        .sidebar-list-title {
+            list-style-type: none;
+        }
+        
+        .sidebar-list-item {
+            position: relative;
+            z-index: 0;
+            cursor: pointer;
+            list-style: none;
+            font-size: 1.3rem;
+            line-height: 2.6rem;
+            font-family: "Redressed";
+            font-weight: 600;
+        }
+        
+        .sidebar-list-item:active {
+            position: relative;
+            z-index: 0;
+            cursor: pointer;
+            list-style: none;
+            font-size: 1.3rem;
+            line-height: 2.6rem;
+            font-family: "Redressed";
+            font-weight: 600;
+            transform: translateY(1px);
+        }
+        
+        .sidebar-list-item:after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: 0;
+            right: 0;
+            background: #fdfdfd;
+            transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            bottom: 6px;
+            height: 7px;
+            left: 7px;
+        }
+          
+        .sidebar-list-item:hover:after {
+            transform: scaleX(0.5);
+        }
+    }
+
+    .shop-items {
+        width: 75%;
+
+        /* This shows only when a sub-category is selected from the shop*/
+        .shop-title-text {
+            margin-left: 25px;
+            cursor: default;
+        }
+        
+        .shop-title-text-hidden {
+            display: none;
+        }
+        
+        .shop-title-return {
+            margin-left: 25px;
+            cursor: pointer;
+
+            .return-arrow {
+                position: relative;
+                top: 3px;
+            }
+        }
+        
+        .shop-title-return-hidden {
+            margin-left: 25px;
+            display: none;
+        }
+
+        .inventory-display {
+            @include flex(row, space-evenly);
+            flex-wrap: wrap;
+            margin: 0 auto;
+            width: 95%;
+            height: 400px;
+        }
+        
+        .shop-item-card {
+            @include flex(column, space-evenly);
+            width: 300px;
+            height: 310px;
+            margin-bottom: 20px;
+            cursor: pointer;
+
+            .shop-item-image-container {
+                margin-top: 10px;
+                margin-left: 15%;
+                width: 200px;
+                height: 80%;
+                pointer-events: none;
+    
+                .shop-item-image {
+                    max-width: 100%;
+                    max-height: 100%;
+                    pointer-events: none;
+                }
+            }
+
+            .shop-item-info {
+                @include flex (column, space-evenly);
+                align-items: center;
+                pointer-events: none;
+                height: 20%;
+            }
+        }
+    }
 }
 
-.shop-sidebar {
-    width: 23%;
-    background-color: rgb(46, 46, 46);
-    padding-left: 25px;
-    color: white;
-}
 
 @media (max-width: 750px) {
     .shop-container {
         margin-top: 90px;
         width: 100%;
         height: 1000px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
+        @include flex(column, flex-start);
+
+        /* Sidebar shifted to top when screen width reduced*/
+        .shop-sidebar {
+            padding: 0;
+            width: 100%;
+            background-color: $sidebar-color;
+            color: white;
+
+            .sidebar-title {
+                display: none;
+            }
+            
+            .sidebar-list-title {
+                @include flex (row, space-evenly);
+                list-style-type: none;
+                padding: 0;
+            }
+            
+            .sidebar-list-item {
+                position: relative;
+                z-index: 0;
+                cursor: pointer;
+                list-style: none;
+                font-size: 1.3rem;
+                line-height: 2.6rem;
+                font-family: "Redressed";
+                font-weight: 600;
+            }
+            
+            .sidebar-list-item:active {
+                position: relative;
+                z-index: 0;
+                cursor: pointer;
+                list-style: none;
+                font-size: 1.3rem;
+                line-height: 2.6rem;
+                font-family: "Redressed";
+                font-weight: 600;
+                transform: translateY(1px);
+            }
+            
+            .sidebar-list-title .sidebar-list-item:after {
+                content: "";
+                position: absolute;
+                z-index: -1;
+                left: 0;
+                right: 0;
+                background: #fdfdfd;
+                transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+                transform-origin: 50% 100%;
+                transform: scaleX(0);
+                bottom: 4px;
+                height: 4px;
+            }
+              
+            .sidebar-list-item-active {
+                background-color: pink;
+            }
+            
+            .sidebar-list-title .sidebar-list-item:hover:after {
+                transform: scaleX(1);
+            }
+        }
+
+        .shop-items {
+            width: 100%;
     
-    .shop-sidebar {
-        padding: 0;
-        width: 100%;
-        background-color: rgb(46, 46, 46);
-        color: white;
+            .inventory-display {
+                @include flex(row, space-evenly);
+                margin: 0 auto;
+                width: 95%;
+                height: 400px;
+            }
+        }
     }
 
-    .sidebar-title {
-        display: none;
-    }
     
-    .sidebar-list-title {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        list-style-type: none;
-        padding: 0;
-    }
-    
-    .sidebar-list-item {
-        position: relative;
-        z-index: 0;
-        cursor: pointer;
-        list-style: none;
-        font-size: 1.3rem;
-        line-height: 2.6rem;
-        font-family: "Redressed";
-        font-weight: 600;
-    }
-    
-    .sidebar-list-item:active {
-        position: relative;
-        z-index: 0;
-        cursor: pointer;
-        list-style: none;
-        font-size: 1.3rem;
-        line-height: 2.6rem;
-        font-family: "Redressed";
-        font-weight: 600;
-        transform: translateY(1px);
-    }
-    
-    .sidebar-list-title .sidebar-list-item:after {
-        content: "";
-        position: absolute;
-        z-index: -1;
-        left: 0;
-        right: 0;
-        background: #fdfdfd;
-        transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
-        transform-origin: 50% 100%;
-        transform: scaleX(0);
-        bottom: 4px;
-        height: 4px;
-    }
-      
-    .sidebar-list-item-active {
-        background-color: pink;
-    }
-    
-    .sidebar-list-title .sidebar-list-item:hover:after {
-        transform: scaleX(1);
-    }
-    
-    .shop-container .shop-items {
-        width: 100%;
-    }
 }
-
-.sidebar-title {
-    cursor: default;
-}
-
-.sidebar-list-title {
-    list-style-type: none;
-}
-
-.sidebar-list-item {
-    position: relative;
-    z-index: 0;
-    cursor: pointer;
-    list-style: none;
-    font-size: 1.3rem;
-    line-height: 2.6rem;
-    font-family: "Redressed";
-    font-weight: 600;
-}
-
-.sidebar-list-item:active {
-    position: relative;
-    z-index: 0;
-    cursor: pointer;
-    list-style: none;
-    font-size: 1.3rem;
-    line-height: 2.6rem;
-    font-family: "Redressed";
-    font-weight: 600;
-    transform: translateY(1px);
-}
-
-.sidebar-list-item:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    left: 0;
-    right: 0;
-    background: #fdfdfd;
-    transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
-    transform-origin: 0 50%;
-    transform: scaleX(0);
-    bottom: 6px;
-    height: 7px;
-    left: 7px;
-}
-  
-.sidebar-list-item:hover:after {
-    transform: scaleX(0.5);
-}
-
-.shop-items {
-    width: 75%;
-}
-
-.inventory-display {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    width: 95%;
-    height: 400px;
-}
-
-.shop-item-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width: 300px;
-    height: 310px;
-    margin-bottom: 20px;
-    cursor: pointer;
-}
-.shop-item-image-container {
-    margin-top: 10px;
-    margin-left: 15%;
-    width: 200px;
-    height: 80%;
-    pointer-events: none;
-}
-
-.shop-item-image {
-    max-width: 100%;
-    max-height: 100%;
-    pointer-events: none;
-}
-
-.shop-item-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    pointer-events: none;
-    height: 20%;
-}
-
-.shop-title-text {
-    margin-left: 25px;
-    cursor: default;
-}
-
-.shop-title-text-hidden {
-    display: none;
-}
-
-.shop-title-return {
-    margin-left: 25px;
-    cursor: pointer;
-}
-
-.return-arrow {
-    position: relative;
-    top: 3px;
-}
-
-.shop-title-return-hidden {
-    margin-left: 25px;
-    display: none;
-}
-
