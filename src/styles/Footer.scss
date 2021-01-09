@@ -11,23 +11,27 @@
     background-color: rgb(0, 0, 0);
     color: white;
     cursor: default;
-}
 
-.personal-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+    .personal-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        .shop-owner {
+            height: 20px;
+            margin-top: 5px;
+            margin-bottom: 0px;
+        }
+        
+        .contact-details {
+            height: 20px;
+            margin-top: 5px;
+        }
+    }
 
-.shop-owner {
-    height: 20px;
-    margin-top: 5px;
-    margin-bottom: 0px;
-}
-
-.contact-details {
-    height: 20px;
-    margin-top: 5px;
+    .address {
+        margin-top: 20px;
+    }
 }
 
 @media (max-width: 750px) {
@@ -44,10 +48,15 @@
         background-color: rgb(0, 0, 0);
         color: white;
         cursor: default;
-    }
 
-    .contact-details {
-        height: 10px;
-        margin-top: 5px;
+        .contact-details {
+            height: 10px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .address {
+            margin-top: 0px;
+        }
     }
 }
