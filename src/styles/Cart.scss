@@ -7,8 +7,8 @@
     z-index: 2;
     padding-left: 15px;
     animation: cartSlideIn 1s;
-    overflow: scroll;
-    border: rgb(214, 214, 214) solid 8px;
+    overflow-x: hidden;
+    border: rgb(58, 58, 58) solid 8px;
     box-sizing: border-box;
 };
 
@@ -75,6 +75,7 @@
         }
 
         .change-quantity-input {
+            font-family: Redressed;
             width: 44px;
         }
     }

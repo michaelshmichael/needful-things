@@ -5,8 +5,6 @@ import babeRuthHomeRunBall from './images/babe-ruth-home-run-ball.png';
 import timeLordGlasses from './images/time-lords-glasses.jpg';
 import abrahamTunic from './images/abrahams-tunic.jpg';
 
-
-
 const wholeInventory = [
     {
         item: 'Enchanting Amulet', 
