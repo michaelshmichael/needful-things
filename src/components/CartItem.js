@@ -33,7 +33,6 @@ export default function CartItem (props) {
                 </img>
                 <div className='item-quantity'>
                     <h3>Price: {format(itemsTotal)}</h3>
-                    
                         <p>No. of items</p>
                         <div className='change-quantity'>
                         <FiMinus className='change-quantity-button' 
@@ -47,7 +46,7 @@ export default function CartItem (props) {
                         <FiPlus className='change-quantity-button' onClick={increaseNumberOfItems}/>
                     </div>
                     <button
-                    className='delete-item-button'
+                    className='uibutton'
                     id={props.item.id}
                     onClick={e => props.deleteItemFromCart(e)}>Delete Item</button>
                 </div>
