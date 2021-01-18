@@ -16,8 +16,20 @@
     @include cart-container;
     width: 500px;
 
+    .cart-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        height: 50px;
+
+        .your-cart {
+            margin-right: 20px;
+        }
+    }
+
     .item-container-in-cart {
-        height: 220px;
+        height: 240px;
         width: 400px;
         background-color: rgb(138, 137, 137);
         text-align: center;
@@ -25,7 +37,7 @@
     
     .item-header {
         position: relative;
-        margin-top: 15px;
+        margin-top: 25px;
     }
     
     .item-information {
@@ -53,6 +65,12 @@
     
     .change-quantity {
         margin-bottom: 10px;
+    }
+
+    .change-quantity-button {
+        padding-top: 5px;
+        margin-right: 10px;
+        margin-left: 10px;
     }
     
     .change-quantity-input {

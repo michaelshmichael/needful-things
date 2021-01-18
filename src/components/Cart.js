@@ -19,7 +19,10 @@ export default function Cart (props) {
 
     return (
         <div className={props.cartContainerClass}>
-            <h1>Your Cart</h1>
+            <div className='cart-header'>
+            <h1 className='your-cart'>Your Cart</h1>
+            <button className='uibutton' onClick={props.toggleCartDisplay}>Hide Cart</button>
+            </div>
             {props.cartContents.map((item) => (
                 <CartItem
                 key={uniqid} 
@@ -28,7 +31,7 @@ export default function Cart (props) {
                 deleteItemFromCart={props.deleteItemFromCart}/>
             ))}
             <h2>Subtotal: {format(props.cartPrice)}</h2>
-            <button className='uibutton' onClick={props.toggleCartDisplay}>Hide Cart</button>
+            
         </div>
     )
 };

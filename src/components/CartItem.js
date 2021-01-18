@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
+import { FiMinus, FiPlus } from 'react-icons/fi';
 import '../styles/Cart.scss'
 
 export default function CartItem (props) {
     const itemsTotal = props.item.price*props.item.itemTotal;
-    const [disableDecreaseButton, setDisableDecreaseButton] = useState(true)
     
     const increaseNumberOfItems = () => {
         props.item.itemTotal+=1;
         props.updateCartPrice(props.item.price, 'plus');
-        setDisableDecreaseButton(false);
     };
 
     const decreaseNumberOfItems = () => {
-        props.item.itemTotal-=1;
-        props.updateCartPrice(props.item.price, 'minus');
-        if(props.item.itemTotal === 1){
-             setDisableDecreaseButton(true);
+        if(props.item.itemTotal > 1){
+            props.item.itemTotal-=1;
+            props.updateCartPrice(props.item.price, 'minus');
         }
     };
 
@@ -35,16 +33,18 @@ export default function CartItem (props) {
                 </img>
                 <div className='item-quantity'>
                     <h3>Price: {format(itemsTotal)}</h3>
-                    <div className='change-quantity'>
+                    
                         <p>No. of items</p>
-                        <button className='change-quantity-button' disabled={disableDecreaseButton} onClick={decreaseNumberOfItems}>-</button>
+                        <div className='change-quantity'>
+                        <FiMinus className='change-quantity-button' 
+                        onClick={decreaseNumberOfItems}/>
                         <input
                         className='change-quantity-input' 
                         type='number'
                         value={props.item.itemTotal} 
                         id={props.item.id} 
                         ></input>
-                        <button className='change-quantity-button' onClick={increaseNumberOfItems}>+</button>
+                        <FiPlus className='change-quantity-button' onClick={increaseNumberOfItems}/>
                     </div>
                     <button
                     className='delete-item-button'
